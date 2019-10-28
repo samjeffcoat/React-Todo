@@ -6,13 +6,48 @@ import './components/TodoComponents/Todo.css'
 const data =
 [
   {
-    task: 'Organize Garage',
+    task: 'Feed Luke',
     id: 1528817077286,
     completed: false
   },
   {
-    task: 'Bake Cookies',
+    task: 'Change Lukes Diaper',
     id: 1528817084358,
+    completed: false
+  },
+  {
+    task: 'Do a code challenge',
+    id: 1522251551,
+    completed: false,
+  },
+  {
+    task: 'Read TK or Watch TK Videos',
+    id: 1555550000,
+    completed: false
+  },
+  {
+    task: "Watch Lecture",
+    id: 155555000044,
+    completed: false
+  },
+  {
+    task: "Exercise and Eat Lunch",
+    id: 15555500008888,
+    completed: false
+  },
+  {
+    task: "Do afternoon project",
+    id: 15555500009999,
+    completed: false
+  },
+  {
+    task: "Fill out airtable",
+    id: 15555500001455558,
+    completed: false
+  },
+  {
+    task: 'Attend Evening Standup',
+    id: 1555550000877778777,
     completed: false
   }
 ];
@@ -55,6 +90,10 @@ class App extends React.Component {
       })
     })
   }
+  clearCompleted = () => {
+    let todo= this.state.todo.filter(todo=> !todo.completed);
+    this.setState({todo})
+  }
   render() {
     return (
       <div className= "App">
@@ -62,7 +101,7 @@ class App extends React.Component {
           <h1>Sam's Todo App!</h1>
           <TodoForm addTask={this.addTask} />
         </div>
-        <TodoList toggleCompleted= {this.toggleCompleted} todo= {this.state.todo}/>
+        <TodoList toggleCompleted={this.toggleCompleted} clearCompleted={this.clearCompleted}todo= {this.state.todo}/>
       </div>
     );
   }
