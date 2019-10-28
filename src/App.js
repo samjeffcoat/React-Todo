@@ -38,6 +38,22 @@ class App extends React.Component {
       todo: [...this.state.todo, newTask]
     })
   }
+  toggleCompleted = id => {
+    //loop through tasks
+    // find grocery we clicked on and toggle list on or off
+    this.setState({
+      todo: this.state.todo.map(todo => {
+        if (todo.id === id){
+          return {
+            ...todo, 
+            completed: !todo.completed
+          }
+        } else{
+            return todo;
+          }
+      })
+    })
+  }
   render() {
     return (
       <div className= "App">
@@ -45,7 +61,7 @@ class App extends React.Component {
           <h1>Sam's Todo App!</h1>
           <TodoForm addTask={this.addTask} />
         </div>
-        <TodoList todo= {this.state.todo}/>
+        <TodoList toggleCompleted= {this.toggleCompleted} todo= {this.state.todo}/>
       </div>
     );
   }
