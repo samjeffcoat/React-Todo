@@ -8,7 +8,7 @@ import Todo from './Todo';
 const TodoList = props => {
     return (
         <div className= "todo-list">
-            {props.task.map(todo => (
+            {props.todo.map(todo => (
                 <Todo key = {todo.id} todo = {todo}/>   
             ))}
             <button className= "clear-btn" onClick = {props.clearTodo}>
@@ -18,3 +18,5 @@ const TodoList = props => {
     )
 
 }
+
+export default TodoList;
