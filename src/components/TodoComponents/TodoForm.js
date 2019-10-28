@@ -7,9 +7,19 @@ class TodoForm extends React.Component{
             newTodo: ' '
         }
     }
+    handleChanges = e => {
+        this.setState({
+            newTodo: e.target.value 
+        })
+    }
+    handleSubmit = e => {
+        e.preventDefault();
+        console.log("It's Working!");
+        this.props.addTask(this.state.newTodo)
+    }
     render(){
         return(
-            <form>
+            <form onSubmit= {this.handleSubmit}>
                 <label htmlFor = "todo">New Todo</label>
                 <input
                 type= "text"
